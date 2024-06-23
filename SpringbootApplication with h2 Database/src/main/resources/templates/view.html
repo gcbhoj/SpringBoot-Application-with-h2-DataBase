@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../static/css/viewpage.css" />
+    <link rel="stylesheet" th:href="@{/css/viewpage.css}" />
+  </head>
+  <body>
+    <section class="headerandnav">
+      <header>
+        <div class="headercontent">
+          <div class="logo">
+            <div></div>
+            <div><p>q</p></div>
+            <div><p>t</p></div>
+          </div>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="/"
+                  >home
+                  <img
+                    width="25px"
+                    th:src="@{/images/home.webp}"
+                    alt="Add Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/add"
+                  >buy ticket
+                  <img
+                    width="35px"
+                    th:src="@{/images/buy.png}"
+                    alt="View Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/view"
+                  >purchase history
+                  <img width="25px" th:src="@{/images/view.png}" alt="view"
+                /></a>
+              </li>
+              <li>
+                <a href="/stats"
+                  >statistics
+                  <img
+                    width="25px"
+                    th:src="@{/images/statistics.png}"
+                    alt="stats"
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <section class="mainbody">
+      <p>Ticket Purchase Details</p>
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Event Name</th>
+          <th>Artist Name</th>
+          <th>location</th>
+          <th>event date</th>
+          <th>event time</th>
+          <th>price</th>
+          <th>section</th>
+          <th>row number</th>
+          <th>seat</th>
+          <th>parking</th>
+        </tr>
+        <tr th:each="ticket : ${myTicket}">
+          <td th:text="${ticket.id}"></td>
+          <td th:text="${ticket.name}"></td>
+          <td th:text="${ticket.eventName}"></td>
+          <td th:text="${ticket.artistName}"></td>
+          <td th:text="${ticket.location}"></td>
+          <td th:text="${ticket.eventDate}"></td>
+          <td th:text="${ticket.eventTime}"></td>
+          <td th:text="${ticket.price}"></td>
+          <td th:text="${ticket.section}"></td>
+          <td th:text="${ticket.rowNumber}"></td>
+          <td th:text="${ticket.seat}"></td>
+          <td th:text="${ticket.parking}"></td>
+          <td>
+            <a th:href="@{/edit/{id}(id=${ticket.id})}">edit</a>
+          </td>
+          <td>
+            <a th:href="@{/delete/{id}(id=${ticket.id})}">delete</a>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <footer class="footerContainer">
+      <section class="footerLeft"></section>
+      <section class="footerCenter">
+        <div class="copyright"><p>copyright &copy; 2024</p></div>
+        <div></div>
+        <div class="followus">
+          <p>Follow us:</p>
+          <img
+            width="35px"
+            th:src="@{/images/facebookicon.png}"
+            alt="facebookIcon"
+          />
+          <img width="35px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img
+            width="40px"
+            src="./images/tiktok_logo_brand_icon.png"
+            alt="ticktok"
+          />
+          <img width="40px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img width="40px" th:src="@{/images/whatsapp.png}" alt="whatsapp" />
+          <img width="40px" th:src="@{/images/linkedin.png}" alt="linkedin" />
+        </div>
+      </section>
+      <section class="footerRight">
+        <div class="backToTop">
+          <a href="/view"
+            ><img
+              width="30px"
+              height="30px"
+              th:src="@{/images/back to top.png}"
+              alt="backtoTop"
+          /></a>
+        </div>
+        <div class="footerNav">
+          <a href="/">Home</a>
+          <a href="/add">Add</a>
+          <a href="/view">View</a>
+          <a href="/">contact</a>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>

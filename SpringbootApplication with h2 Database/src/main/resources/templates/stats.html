@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <link rel="stylesheet" href="../static/css/statspage.css" />
+  <link rel="stylesheet" th:href="@{/css/statspage.css}" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <section class="headerandnav">
+      <header>
+        <div class="headercontent">
+          <div class="logo">
+            <div></div>
+            <div><p>q</p></div>
+            <div><p>t</p></div>
+          </div>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="/"
+                  >home
+                  <img
+                    width="25px"
+                    th:src="@{/images/home.webp}"
+                    alt="Add Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/add"
+                  >buy ticket
+                  <img
+                    width="35px"
+                    th:src="@{/images/buy.png}"
+                    alt="View Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/view"
+                  >purchase history
+                  <img width="25px" th:src="@{/images/view.png}" alt="view"
+                /></a>
+              </li>
+              <li>
+                <a href="/stats"
+                  >statistics
+                  <img
+                    width="25px"
+                    th:src="@{/images/statistics.png}"
+                    alt="stats"
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <section class="mainbody">
+      <div class="maincontent"></div>
+      <div class="leftbody">
+        <div class="toalattendees">
+          <p>Successful Event by Total Attendees</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Artist Name</th>
+                <th>Number of Attendees</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="ticket : ${hello}">
+                <td th:text="${ticket.eventName}"></td>
+                <td th:text="${ticket.artistName}"></td>
+                <td th:text="${ticket.numberOfAttendees}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="revenuebyeventname">
+          <p>Total Revenue by Event Name</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Total Revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="ticket : ${my}">
+                <td th:text="${ticket.eventName}"></td>
+                <td th:text="${ticket.totalRevenue}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="attendencebysection">
+          <p>Max Attendance by Section</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Artist Name</th>
+                <th>Section</th>
+                <th>Max Attendance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="ticket : ${mine}">
+                <td th:text="${ticket.eventName}"></td>
+                <td th:text="${ticket.artistName}"></td>
+                <td th:text="${ticket.section}"></td>
+                <td th:text="${ticket.maxAttendance}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="rightbody">
+        <div class="attendeesbyeventname">
+          <p>list of attendees by event name</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="ticket : ${hi}">
+                <td th:text="${ticket.name}"></td>
+                <td th:text="${ticket.email}"></td>
+                <td th:text="${ticket.eventName}"></td>
+                <td th:text="${ticket.eventDate}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="parkingrequests">
+          <p>Number of parking requests for each event</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Number of Parking Requests</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="ticket : ${parking}">
+                <td th:text="${ticket.eventName}"></td>
+                <td th:text="${ticket.eventDate}"></td>
+                <td th:text="${ticket.numOfParking}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer class="footerContainer">
+      <section class="footerLeft"></section>
+      <section class="footerCenter">
+        <div class="copyright"><p>copyright &copy; 2024</p></div>
+        <div></div>
+        <div class="followus">
+          <p>Follow us:</p>
+          <img
+            width="35px"
+            th:src="@{/images/facebookicon.png}"
+            alt="facebookIcon"
+          />
+          <img width="35px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img
+            width="40px"
+            src="./images/tiktok_logo_brand_icon.png"
+            alt="ticktok"
+          />
+          <img width="40px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img width="40px" th:src="@{/images/whatsapp.png}" alt="whatsapp" />
+          <img width="40px" th:src="@{/images/linkedin.png}" alt="linkedin" />
+        </div>
+      </section>
+      <section class="footerRight">
+        <div class="backToTop">
+          <a href="/stats"
+            ><img
+              width="30px"
+              height="30px"
+              th:src="@{/images/back to top.png}"
+              alt="backtoTop"
+          /></a>
+        </div>
+        <div class="footerNav">
+          <a href="/">Home</a>
+          <a href="/add">Add</a>
+          <a href="/view">View</a>
+          <a href="/">contact</a>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../static/css/homepage.css" />
+    <link rel="stylesheet" th:href="@{/css/homepage.css}" />
+  </head>
+  <body>
+    <section class="headerandnav">
+      <header>
+        <div class="headercontent">
+          <div class="logo">
+            <div></div>
+            <div><p>q</p></div>
+            <div><p>t</p></div>
+          </div>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="/"
+                  >home
+                  <img
+                    width="25px"
+                    th:src="@{/images/home.webp}"
+                    alt="Add Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/add"
+                  >buy ticket
+                  <img
+                    width="35px"
+                    th:src="@{/images/buy.png}"
+                    alt="View Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/view"
+                  >purchase history
+                  <img width="25px" th:src="@{/images/view.png}" alt="view"
+                /></a>
+              </li>
+              <li>
+                <a href="/stats"
+                  >statistics
+                  <img
+                    width="25px"
+                    th:src="@{/images/statistics.png}"
+                    alt="stats"
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <hr />
+    <section class="mainbody">
+      <div class="mainbodyheader">
+        <div class="promotion">
+          <p>get yours</p>
+
+          <p><a href="/add">now</a></p>
+        </div>
+      </div>
+      <div class="maincontent">
+        <div class="leftcontent">
+          <div class="currentlyhappening">
+            <div class="currentlyhappeningheader">
+              <p>selling out.......</p>
+            </div>
+            <div class="currentlyhappeiningevents">
+              <div class="leftimage"></div>
+              <div class="rightimage"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rightcontent">
+          <div class="rightcontentheader">
+            <p>happening now......</p>
+          </div>
+          <div class="rightcontentimages">
+            <img th:src="@{/images/concert1.jpg}" alt="concet1" />
+            <img th:src="@{/images/concert2.jpg}" alt="concert2" />
+            <img th:src="@{/images/concert3.jpg}" alt="concert3" />
+            <img th:src="@{/images/concert4.jpg}" alt="concert4" />
+            <img th:src="@{/images/concert5.jpg}" alt="concert5" />
+            <img th:src="@{/images/concert6.jpg}" alt="concert6" />
+            <img th:src="@{/images/concert7.jpg}" alt="concert7" />
+            <img th:src="@{/images/concert8.jpg}" alt="concert8" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <footer class="footerContainer">
+      <section class="footerLeft"></section>
+      <section class="footerCenter">
+        <div class="copyright"><p>copyright &copy; 2024</p></div>
+        <div></div>
+        <div class="followus">
+          <p>Follow us:</p>
+          <img
+            width="35px"
+            th:src="@{/images/facebookicon.png}"
+            alt="facebookIcon"
+          />
+          <img width="35px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img
+            width="40px"
+            src="./images/tiktok_logo_brand_icon.png"
+            alt="ticktok"
+          />
+          <img width="40px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img width="40px" th:src="@{/images/whatsapp.png}" alt="whatsapp" />
+          <img width="40px" th:src="@{/images/linkedin.png}" alt="linkedin" />
+        </div>
+      </section>
+      <section class="footerRight">
+        <div class="backToTop">
+          <a href="/stats"
+            ><img
+              width="30px"
+              height="30px"
+              th:src="@{/images/back to top.png}"
+              alt="backtoTop"
+          /></a>
+        </div>
+        <div class="footerNav">
+          <a href="/">Home</a>
+          <a href="/add">Add</a>
+          <a href="/view">View</a>
+          <a href="/">contact</a>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>

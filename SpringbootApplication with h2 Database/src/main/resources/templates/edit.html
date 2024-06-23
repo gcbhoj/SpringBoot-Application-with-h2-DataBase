@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <link rel="stylesheet" href="../static/css/editpage.css" />
+  <link rel="stylesheet" th:href="@{/css/editpage.css}" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <section class="headerandnav">
+      <header>
+        <div class="headercontent">
+          <div class="logo">
+            <div></div>
+            <div><p>q</p></div>
+            <div><p>t</p></div>
+          </div>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="/"
+                  >home
+                  <img
+                    width="25px"
+                    th:src="@{/images/home.webp}"
+                    alt="Add Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/add"
+                  >buy ticket
+                  <img
+                    width="35px"
+                    th:src="@{/images/buy.png}"
+                    alt="View Contacts"
+                /></a>
+              </li>
+              <li>
+                <a href="/view"
+                  >purchase history
+                  <img width="25px" th:src="@{/images/view.png}" alt="view"
+                /></a>
+              </li>
+              <li>
+                <a href="/stats"
+                  >statistics
+                  <img
+                    width="25px"
+                    th:src="@{/images/statistics.png}"
+                    alt="stats"
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <section class="mainbody">
+      <p>Modify Required fields</p>
+      <div class="mainform">
+        <form th:action="@{/edit}" method="post" th:object="${myTicket}">
+          <input type="hidden" th:field="*{id}" /><br />
+          Name:
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            th:field="*{name}"
+          /><br />
+          Event Name:
+          <input
+            type="text"
+            placeholder="Enter Event Name"
+            th:field="*{eventName}"
+          /><br />
+          Artist Name:
+          <input
+            type="text"
+            placeholder="Enter Artist Name"
+            th:field="*{artistName}"
+          /><br />
+          location:
+          <input
+            type="text"
+            placeholder="Enter Location"
+            th:field="*{location}"
+          /><br />
+          Event Date:
+          <select th:field="*{eventDate}">
+            <option value="" disabled selected>Choose Event Date</option>
+            <option
+              th:each="a : *{dates}"
+              th:text="${a}"
+              th:value="${a}"
+            ></option></select
+          ><br />
+          Event Time:
+          <select th:field="*{eventTime}">
+            <option value="" disabled selected>Choose Event Time</option>
+            <option
+              th:each="b : *{etimes}"
+              th:text="${b}"
+              th:value="${b}"
+            ></option></select
+          ><br />
+          Price: <input type="number" step="0.10" th:field="*{price}" /><br />
+          Section:
+          <select th:field="*{section}">
+            <option value="" disabled selected>Choose Section</option>
+            <option
+              th:each="c : *{mySection}"
+              th:text="${c}"
+              th:value="${c}"
+            ></option></select
+          ><br />
+          Select Row:
+          <select th:field="*{rowNumber}">
+            <option value="0" disabled selected>Select Row</option>
+            <option
+              th:each="a : *{myRow}"
+              th:text="${a}"
+              th:value="${a}"
+            ></option></select
+          ><br />
+          Select Seat:
+          <select th:field="*{seat}">
+            <option value="0" disabled selected>Select Seat</option>
+            <option
+              th:each="b : *{mySeat}"
+              th:text="${b}"
+              th:value="${b}"
+            ></option></select
+          ><br />
+          <label for="parking_yes">Parking</label>
+          <input type="radio" name="Parking" th:value="YES" id="parking_yes" th:field ="*{parking}" />
+          Yes
+          <input type="radio" name="Parking" th:value="NO" id="parking_no" th:field ="*{parking}" />
+          No<br />
+          <div class="submitbtn">
+            <input class="button" type="submit" value="edit ticket" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer class="footerContainer">
+      <section class="footerLeft"></section>
+      <section class="footerCenter">
+        <div class="copyright"><p>copyright &copy; 2024</p></div>
+        <div></div>
+        <div class="followus">
+          <p>Follow us:</p>
+          <img
+            width="35px"
+            th:src="@{/images/facebookicon.png}"
+            alt="facebookIcon"
+          />
+          <img width="35px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img
+            width="40px"
+            src="./images/tiktok_logo_brand_icon.png"
+            alt="ticktok"
+          />
+          <img width="40px" th:src="@{/images/instagram.png}" alt="instagram" />
+          <img width="40px" th:src="@{/images/whatsapp.png}" alt="whatsapp" />
+          <img width="40px" th:src="@{/images/linkedin.png}" alt="linkedin" />
+        </div>
+      </section>
+      <section class="footerRight">
+        <div class="backToTop">
+          <a href="/add"
+            ><img
+              width="30px"
+              height="30px"
+              th:src="@{/images/back to top.png}"
+              alt="backtoTop"
+          /></a>
+        </div>
+        <div class="footerNav">
+          <a href="/">Home</a>
+          <a href="/add">Add</a>
+          <a href="/view">View</a>
+          <a href="/">contact</a>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
